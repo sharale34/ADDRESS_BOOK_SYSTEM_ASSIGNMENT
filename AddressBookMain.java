@@ -10,8 +10,12 @@ public class AddressBookMain {
 		//creating object and assigning values to variables
 	    Scanner sc = new Scanner(System.in);
 	    Contact obj = new Contact();
-	    char choice=' ';
-	    do {	
+	    int choice=0;
+	    do {
+	    	System.out.println("Please Enter from the Menu.\n1. Add a Contact: \n2. Delete a contact using the First Name: \n3. Exit");
+			choice=sc.nextInt();
+			switch (choice) {
+			case 1:
 	        System.out.println("First Name :");
 	        String fn=sc.nextLine();
 	        System.out.println("Last Name :");
@@ -29,15 +33,24 @@ public class AddressBookMain {
 	        sc.nextLine();
 	        AddressBook obj1=new AddressBook(fn,ln,ad,city,zip,phno,email);
 	        obj.addContact(obj1);
-	        
+	        break;
+			case 2:
+				System.out.println("Enter the First Name of the contact you want to edit:");
+				String firstNameEdit=sc.nextLine();
+				obj.editContactDetails(firstNameEdit);
+				System.out.println("Contact details updated SuccessFully.");
+				break;
+			default:
+				System.exit(0);
+			}
+	    
 	    System.out.println("Do you want to enter another contact details, Enter 'Y' for yes and 'N' for not.");
 		choice=sc.next().charAt(0);	
 		sc.nextLine();
 		}
-		while(choice=='y' || choice=='Y');
+		while(choice!=3);
 		}
 
-	
 	}
 
 

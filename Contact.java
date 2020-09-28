@@ -16,4 +16,17 @@ public class Contact {
      {
     	 address.add(cobj);
      }
+     public void editContactDetails(String firstNameEdit){
+     	 //List<Contact> editedContact=new ArrayList<Contact>();
+     		int i=0;
+     		for(AddressBook c:address){
+     			if((c.getFirstName()).equals(firstNameEdit))
+     			{
+     				AddressBook contactObj=new AddressBook(c.getFirstName(),c.getLastName(),c.getAddress(),c.getCity(),c.getZip(),c.getPhoneNum(),c.getEmail());
+     				address.set(i+1, contactObj);
+     				break;
+     			}
+     			i+=1;
+     		}
+     	}
 }

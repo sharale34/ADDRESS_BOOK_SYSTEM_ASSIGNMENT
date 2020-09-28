@@ -29,4 +29,20 @@ public class Contact {
      			i+=1;
      		}
      	}
+     public void deleteContactDetails(String firstNameDelete) {
+  		int i=0;
+  		for(AddressBook c:address){
+  			if((c.getFirstName()).equals(firstNameDelete))
+  			{
+  				address.remove(i+1);
+  				break;
+  			}
+  			i+=1;
+  		}
+  	}
+  	public void printContactDetails() {
+  		for(AddressBook c:address){
+  			System.out.println("First name: "+c.getFirstName()+" Last name: "+c.getLastName()+" Address: "+c.getAddress()+" City Name: "+c.getCity()+" Zip Number: "+c.getZip()+" Phone Number: "+c.getPhoneNum()+" Email Id: "+c.getEmail());
+  		}
+  	}
 }

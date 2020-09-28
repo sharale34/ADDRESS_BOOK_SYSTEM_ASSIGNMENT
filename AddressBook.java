@@ -77,7 +77,7 @@ public class AddressBook {
 
 
 	public void setPhoneNum(long phoneNum) {
-		this.phoneNum = phoneNum;
+		this.phoneNum=phoneNum;
 	}
 
 

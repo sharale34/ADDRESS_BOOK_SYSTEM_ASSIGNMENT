@@ -40,6 +40,14 @@ public class AddressBookMain {
 				obj.editContactDetails(firstNameEdit);
 				System.out.println("Contact details updated SuccessFully.");
 				break;
+			case 3:
+				System.out.println("Enter the First Name of the contact you want to Delete:");
+				String firstNameDelete=sc.nextLine();
+				obj.deleteContactDetails(firstNameDelete);
+				System.out.println("Contact details deleted SuccessFully.");
+				break;	
+			case 4:
+				obj.printContactDetails();
 			default:
 				System.exit(0);
 			}
@@ -48,9 +56,8 @@ public class AddressBookMain {
 		choice=sc.next().charAt(0);	
 		sc.nextLine();
 		}
-		while(choice!=3);
+		while(choice=='y' || choice=='Y');
 		}
-
 	}
 
 

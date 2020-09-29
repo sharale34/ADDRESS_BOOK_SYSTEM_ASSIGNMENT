@@ -10,11 +10,24 @@ public class AddressBookMain {
 		//creating object and assigning values to variables
 	    Scanner sc = new Scanner(System.in);
 	    Contact obj = new Contact();
-	    int choice=0;
+	    int menu;
+	    char choice=' ';
+	    int ch=0;
+	    while(ch!=2)
+	    {
+			Dictionary dictionary=new Dictionary();
+			System.out.println("Please Enter from the Menu.\n1. Add Address Book \n2. Exit");
+			ch=sc.nextInt();
+			if(ch==2)
+				System.exit(0);
+			System.out.println("Enter the Address Book Name: ");
+			String addressBookName=sc.next();
+			
+			System.out.println("Please Enter from the Menu.\n1. Add a Contact: \n2. Edit a contact using the First Name: \n3. Delete a Contact using first name. \n4. Print all the contact details \n5. Exit");
+			menu=sc.nextInt();
+			sc.nextLine();
 	    do {
-	    	System.out.println("Please Enter from the Menu.\n1. Add a Contact: \n2. Delete a contact using the First Name: \n3. Exit");
-			choice=sc.nextInt();
-			switch (choice) {
+	    	switch (menu) {
 			case 1:
 		    System.out.println("Enter the contact details to be added :");
 	        System.out.println("First Name :");
@@ -32,8 +45,9 @@ public class AddressBookMain {
 	        System.out.println("Email :");
 	        String email=sc.nextLine();
 	        sc.nextLine();
-	        AddressBook obj1=new AddressBook(fn,ln,ad,city,zip,phno,email);
-	        obj.addContact(obj1);
+	        AddressBook contactObj=new AddressBook(fn,ln,ad,city,zip,phno,email);
+	        obj.addContact(contactObj);
+	        dictionary.addAddressBook(addressBookName, contactObj);
 	        break;
 			case 2:
 				System.out.println("Enter the First Name of the contact you want to edit:");
@@ -52,7 +66,6 @@ public class AddressBookMain {
 			default:
 				System.exit(0);
 			}
-	    
 	    System.out.println("Do you want to enter another contact details, Enter 'Y' for yes and 'N' for not.");
 		choice=sc.next().charAt(0);	
 		sc.nextLine();
@@ -60,5 +73,5 @@ public class AddressBookMain {
 		while(choice=='y' || choice=='Y');
 		}
 	}
-
+}
 

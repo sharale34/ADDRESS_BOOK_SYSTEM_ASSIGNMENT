@@ -12,9 +12,9 @@ public class Contact {
 	public void setAddress(ArrayList<AddressBook> address) {
 		this.address = address;
 	}
-     public void addContact(AddressBook cobj)
+     public void addContact(AddressBook contactObj)
      {
-    	 address.add(cobj);
+    	 address.add(contactObj);
      }
      public void editContactDetails(String firstNameEdit){
      	 //List<Contact> editedContact=new ArrayList<Contact>();

@@ -16,6 +16,7 @@ public class AddressBookMain {
 			choice=sc.nextInt();
 			switch (choice) {
 			case 1:
+		    System.out.println("Enter the contact details to be added :");
 	        System.out.println("First Name :");
 	        String fn=sc.nextLine();
 	        System.out.println("Last Name :");

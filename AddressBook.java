@@ -59,4 +59,21 @@ public class AddressBook {
 					+ " Phone Number: " + c.getPhoneNumber() + " Email Id: " + c.getEmailId());
 		}
 	}
+
+	public void searchContactDetails(String firstNameSearch, String lastNameSearch) {
+		boolean search = false;
+		for (Contact contact : addressBook) {
+			if (contact.getFirstName().equals(firstNameSearch) && contact.getLastName().equals(lastNameSearch)) {
+				System.out.println("The Details of the Contact are given Below:");
+				System.out.println("First name: " + contact.getFirstName() + " Last name: " + contact.getLastName()
+						+ " Address: " + contact.getAddress() + " City Name: " + contact.getCityName() + " Zip Number: "
+						+ contact.getZipNumber() + " Phone Number: " + contact.getPhoneNumber() + " Email Id: "
+						+ contact.getEmailId());
+				search = true;
+				break;
+			}
+		}
+		if (search == false)
+			System.out.println("No contact details found with these Details");
+	}
 }

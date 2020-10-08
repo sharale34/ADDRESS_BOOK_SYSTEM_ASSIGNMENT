@@ -34,7 +34,7 @@ public class AddressBookMain {
 
 					System.out.println(
 							"Please Select From Menu: \n1 : Add Contact to Address Book\n2 : Update Existing Contact\n3 : Remove Contact"
-									+ "\n4 : Search details of a Contact \n5 : Print contact details\n6. Exit");
+									+ "\n4 : Search details of a Contact \n5 : Print contact details\n6 : View Person By City\n7 . Exit");
 					option = sc.nextInt();
 
 					switch (option) {
@@ -49,6 +49,8 @@ public class AddressBookMain {
 						String address = sc.nextLine();
 						System.out.println("Enter City : ");
 						String city = sc.nextLine();
+						System.out.println("Enter State : ");
+						String state = sc.nextLine();
 						System.out.println("Enter Zip Code: ");
 						int zipCode = sc.nextInt();
 						System.out.println("Enter Phone Number : ");
@@ -60,7 +62,7 @@ public class AddressBookMain {
 							System.out.println("Duplicate Entry. Try Again");
 						} else {
 							// Instantiation of Contact Class
-							Contact contactObj = new Contact(firstName, lastName, address, city, zipCode, phoneNo,
+							Contact contactObj = new Contact(firstName, lastName, address, city, state, zipCode, phoneNo,
 									email);
 							// Add New Contact into Address Book
 							addressBookObj.addContactToAddressBook(contactObj);
@@ -81,7 +83,7 @@ public class AddressBookMain {
 
 							System.out.println(
 									"Select the Option you want to Update\n1 : First Name\n2 : Last Name\n3 : Address\n"
-											+ "4 : City\n5 : Zip\n6 : Phone Number\n7 : Email\nSelect :");
+											+ "4 : City\n5 : State\n6 : Zip\n7 : Phone Number\n8 : Email\nSelect :");
 							int choice = sc.nextInt();
 
 							switch (choice) {
@@ -106,6 +108,12 @@ public class AddressBookMain {
 								sc.nextLine();
 								String newCity = sc.nextLine();
 								contactEdited.setCityName(newCity);
+								break;
+							case 5:
+								System.out.println("Enter the new State to Update : ");
+								sc.nextLine();
+								String newState = sc.nextLine();
+								contactEdited.setCityName(newState);
 								break;
 							case 6:
 								System.out.println("Enter the new Zip to Update : ");
@@ -140,7 +148,7 @@ public class AddressBookMain {
 						else
 							System.out.println("Contact not Available. Please Try Again!");
 						break;
-
+					// searching for a contact
 					case 4:
 						System.out.println("Enter your First Name of Contact : ");
 						String firstNameSearch = sc.next();
@@ -151,10 +159,15 @@ public class AddressBookMain {
 					case 5:
 						addressBookObj.printContactDetails();
 						break;
+						
+					case 6:
+						System.out.println("Enter the city Name:");
+						String cityNameView=sc.next();
+						addressBookObj.viewPersonsByCityName(cityNameView);
 					default:
 						break;
 					}
-				} while (option != 6);
+				} while (option != 8);
 			} else
 				System.exit(0);
 		}

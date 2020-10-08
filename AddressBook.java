@@ -25,7 +25,6 @@ public class AddressBook {
 				break;
 			}
 		}
-
 		return contactSearch;
 	}
 
@@ -55,7 +54,7 @@ public class AddressBook {
 	public void printContactDetails() {
 		for (Contact c : addressBook) {
 			System.out.println("First name: " + c.getFirstName() + " Last name: " + c.getLastName() + " Address: "
-					+ c.getAddress() + " City Name: " + c.getCityName() + " Zip Number: " + c.getZipNumber()
+					+ c.getAddress() + " City Name: " + c.getCityName() + " State Name: " + c.getStateName() + " Zip Number: " + c.getZipNumber()
 					+ " Phone Number: " + c.getPhoneNumber() + " Email Id: " + c.getEmailId());
 		}
 	}
@@ -66,7 +65,7 @@ public class AddressBook {
 			if (contact.getFirstName().equals(firstNameSearch) && contact.getLastName().equals(lastNameSearch)) {
 				System.out.println("The Details of the Contact are given Below:");
 				System.out.println("First name: " + contact.getFirstName() + " Last name: " + contact.getLastName()
-						+ " Address: " + contact.getAddress() + " City Name: " + contact.getCityName() + " Zip Number: "
+						+ " Address: " + contact.getAddress() + " City Name: " + contact.getCityName() + " State Name: " + contact.getStateName() + " Zip Number: "
 						+ contact.getZipNumber() + " Phone Number: " + contact.getPhoneNumber() + " Email Id: "
 						+ contact.getEmailId());
 				search = true;
@@ -75,5 +74,24 @@ public class AddressBook {
 		}
 		if (search == false)
 			System.out.println("No contact details found with these Details");
+	}
+
+	public void viewPersonsByCityName(String cityNameView) {
+		ArrayList<Contact> cityList = new ArrayList<>();
+		for (Contact contact : addressBook) {
+			if (contact.getCityName().equalsIgnoreCase(cityNameView)) {
+				cityList.add(contact);
+			}
+		}
+		if (cityList.isEmpty()) {
+			System.out.println("No Persons Details found for the Given City Name.");
+		} else {
+			for (Contact c : cityList) {
+				System.out.println("The Details of the Contact of city : " + c.getCityName() + " are given Below:");
+				System.out.println("First name: " + c.getFirstName() + " Last name: " + c.getLastName() + " Address: "
+						+ c.getAddress() + " City Name: " + c.getCityName() + " State Name: " + c.getStateName() + " Zip Number: " + c.getZipNumber()
+						+ " Phone Number: " + c.getPhoneNumber() + " Email Id: " + c.getEmailId());
+			}
+		}
 	}
 }

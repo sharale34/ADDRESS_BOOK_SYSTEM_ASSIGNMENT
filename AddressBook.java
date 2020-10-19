@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.util.function.Predicate;
 
 public class AddressBook {
-	private static Scanner sc = new Scanner(System.in);
+	private static Scanner SC = new Scanner(System.in);
 	AddressBookDictionary addBookDict = new AddressBookDictionary();
 
 	private ArrayList<Contact> addressBook = new ArrayList<Contact>();
@@ -25,20 +25,20 @@ public class AddressBook {
 	// Add a contact into Given AddressBook
 	public Contact addContact() {
 		System.out.println("Enter First Name : ");
-		String firstName = sc.next();
+		String firstName = SC.next();
 		System.out.println("Enter Last Name : ");
-		String lastName = sc.next();
-		sc.nextLine();
+		String lastName = SC.next();
+		SC.nextLine();
 		System.out.println("Enter Address : ");
-		String address = sc.nextLine();
+		String address = SC.nextLine();
 		System.out.println("Enter City : ");
-		String city = sc.nextLine();
+		String city = SC.nextLine();
 		System.out.println("Enter Zip Code: ");
-		int zipCode = sc.nextInt();
+		int zipCode = SC.nextInt();
 		System.out.println("Enter Phone Number : ");
-		Long phoneNo = sc.nextLong();
+		Long phoneNo = SC.nextLong();
 		System.out.println("Enter Email ID : ");
-		String email = sc.next();
+		String email = SC.next();
 		Contact contactObj = new Contact(firstName, lastName, address, city, zipCode, phoneNo, email);
 		// Use of predicate to check for duplicate entry
 		Predicate<Contact> isDuplicate = (Contact) -> Contact.getFirstName().equalsIgnoreCase(firstName)
@@ -69,44 +69,44 @@ public class AddressBook {
 	public void editGivenDetail(Contact contactEdited) {
 		System.out.println("Select the Option you want to Update\n1 : First Name\n2 : Last Name\n3 : Address\n"
 				+ "4 : City\n5 : Zip\n6 : Phone Number\n7 : Email:");
-		int choice = sc.nextInt();
+		int choice = SC.nextInt();
 
 		switch (choice) {
 		case 1:
 			System.out.println("Enter the new First Name to Update : ");
-			String newFirstName = sc.next();
+			String newFirstName = SC.next();
 			contactEdited.setFirstName(newFirstName);
 			break;
 		case 2:
 			System.out.println("Enter the new Last Name to Update : ");
-			String newLastName = sc.next();
+			String newLastName = SC.next();
 			contactEdited.setLastName(newLastName);
 			break;
 		case 3:
 			System.out.println("Enter the new Address to Update : ");
-			sc.nextLine();
-			String newAddress = sc.nextLine();
+			SC.nextLine();
+			String newAddress = SC.nextLine();
 			contactEdited.setAddress(newAddress);
 			break;
 		case 4:
 			System.out.println("Enter the new City to Update : ");
-			sc.nextLine();
-			String newCity = sc.nextLine();
+			SC.nextLine();
+			String newCity = SC.nextLine();
 			contactEdited.setCityName(newCity);
 			break;
 		case 6:
 			System.out.println("Enter the new Zip to Update : ");
-			int newZip = sc.nextInt();
+			int newZip = SC.nextInt();
 			contactEdited.setZipNumber(newZip);
 			break;
 		case 7:
 			System.out.println("Enter the new Phone Number to Update : ");
-			Long newPhoneNo = sc.nextLong();
+			Long newPhoneNo = SC.nextLong();
 			contactEdited.setPhoneNumber(newPhoneNo);
 			break;
 		case 8:
 			System.out.println("Enter the new Email to Update : ");
-			String newEmail = sc.next();
+			String newEmail = SC.next();
 			contactEdited.setEmailId(newEmail);
 			break;
 		default:

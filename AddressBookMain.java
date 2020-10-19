@@ -8,7 +8,6 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class AddressBookMain {
-
 	private static Scanner sc = new Scanner(System.in);
 	// Instantiation of AddressBookDictionary Class
 	static AddressBookDictionary addressBookDictionary = new AddressBookDictionary();
@@ -37,7 +36,7 @@ public class AddressBookMain {
 							"Please Select From Menu: \n1 : Add Contact to Address Book\n2 : Update Existing Contact\n3 : Remove Contact"
 									+ "\n4 : Search  a Contact from multiple AddressBook \n5 : View persons by City Name  "
 									+ "\n6 : Count number of contacts in given city \n7 : Print the Contact entries in sorted manner by First Name"
-									+ "\n8 : Print the contact details sorted by City Name \n9 : Exit");
+									+ "\n8 : Print the contact details sorted by City Name And Phone Number \n9 : Exit");
 					option = sc.nextInt();
 
 					switch (option) {
@@ -181,7 +180,7 @@ public class AddressBookMain {
 		for (AddressBook addbook : addressBookDictionary.getAddressBookDictionary().values()) {
 			sortContact.addAll((addbook.getAddressBook()).stream().collect(Collectors.toList()));
 		}
-		System.out.println("Enter Option 1 for sorting on city name : ");
+		System.out.println("Enter Option 1 for sorting on city name else for Phone number enter 2 : ");
 		int option = sc.nextInt();
 		if (option == 1)
 			Collections.sort(sortContact, new SortByCity());
@@ -191,6 +190,5 @@ public class AddressBookMain {
 			System.out.println("Sorted Contacts details are as follow : ");
 			sortContact.stream().forEach((Contact) -> System.out.println(Contact));
 		}
-
 	}
 }

@@ -23,7 +23,7 @@ public class AddressBookDictionary {
 		addressBookDictionary.put(name, addressBook);
 	}
 
-	//Method to print all the addressBook and the contacts in these
+	// Method to print all the addressBook and the contacts in these
 	public void printAllAddressBook() {
 
 		Iterator<Entry<String, AddressBook>> itr = addressBookDictionary.entrySet().iterator();
@@ -41,4 +41,3 @@ public class AddressBookDictionary {
 		}
 	}
 }
-

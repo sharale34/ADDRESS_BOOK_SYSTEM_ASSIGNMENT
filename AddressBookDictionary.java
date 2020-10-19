@@ -16,4 +16,8 @@ public class AddressBookDictionary {
 	public void addAddressBook(String name, AddressBook addressBook) {
 		addressBookDictionary.put(name, addressBook);
 	}
+
+	public void printAllAddressBook() {
+		addressBookDictionary.forEach((k, v) -> System.out.println("Key " + k + " Values " + v));
+	}
 }

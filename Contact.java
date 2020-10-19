@@ -5,7 +5,6 @@ public class Contact {
 	private String lastName;
 	private String address;
 	private String cityName;
-	private String stateName;
 	private int zipNumber;
 	private long phoneNumber;
 	private String emailId;
@@ -43,14 +42,6 @@ public class Contact {
 		this.cityName = cityName;
 	}
 
-	public String getStateName() {
-		return stateName;
-	}
-
-	public void setStateName(String stateName) {
-		this.stateName = stateName;
-	}
-
 	public int getZipNumber() {
 		return zipNumber;
 	}
@@ -75,16 +66,21 @@ public class Contact {
 		this.emailId = emailId;
 	}
 
-	// Parameterized Constructor
-	public Contact(String firstName, String lastName, String address, String cityName, String stateName, int zipNumber, long phoneNumber,
+	// Parametrised Constructor
+	public Contact(String firstName, String lastName, String address, String cityName, int zipNumber, long phoneNumber,
 			String emailId) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.address = address;
 		this.cityName = cityName;
-		this.stateName = stateName;
 		this.zipNumber = zipNumber;
 		this.phoneNumber = phoneNumber;
 		this.emailId = emailId;
+	}
+
+	@Override
+	public String toString() {
+		return "First Name: " + getFirstName() + ", Last Name " + getLastName() + ", Address " + getAddress()
+				+ ", City " + getCityName() + ", Phone Number " + getPhoneNumber() + ", Email " + getEmailId();
 	}
 }
